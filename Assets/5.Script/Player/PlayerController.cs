@@ -15,8 +15,6 @@ public class PlayerController : MonoBehaviour
     private Vector2 _curMoveInput;
     private Rigidbody2D _rigidbody2D;
 
-    private bool _isGround = false;
-
     #region Unity Flow
     private void Awake()
     {

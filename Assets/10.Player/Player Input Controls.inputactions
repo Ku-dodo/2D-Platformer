@@ -24,7 +24,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Attack",
+                    "name": "Interact",
                     "type": "Button",
                     "id": "9238b367-8337-4989-a9f6-e64d2d694557",
                     "expectedControlType": "Button",
@@ -59,11 +59,11 @@
                 {
                     "name": "",
                     "id": "41c8eb47-92d1-49da-bad0-68d5abc2d644",
-                    "path": "<Keyboard>/ctrl",
+                    "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Attack",
+                    "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
