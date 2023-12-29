@@ -11,6 +11,7 @@ public class DialogueTrigger : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             TriggerDialogue();
+            GameManager.instance.SetPlayerControlUnable();
         }
     }
     public void TriggerDialogue()
