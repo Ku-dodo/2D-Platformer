@@ -9,6 +9,12 @@
 <li>플레이어 컨트롤</li>
 <li>다이얼로그</li>
 <br/>
+그리고...
+<br/>
+<img width="49%" src="https://github.com/Ku-dodo/2D-Platformer/assets/105593231/d8384d1b-1bc1-4b25-a7da-2235b6f67b7a"/>
+<br/>
+약간의 눈...
+<br/>
 
 # 추가 구현할 내용
 <li>NPC와 상호작용</li>
