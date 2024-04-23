@@ -2,18 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DialogueTrigger : MonoBehaviour
+[RequireComponent(typeof(BoxCollider2D))]
+public abstract class DialogueTrigger : MonoBehaviour, IInteractable
 {
     public Dialogue dialogue;
+    private BoxCollider2D _boxCollider;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    private void Start()
     {
-        if (collision.CompareTag("Player"))
-        {
-            TriggerDialogue();
-            GameManager.instance.SetPlayerControlUnable();
-        }
+        _boxCollider = GetComponent<BoxCollider2D>();
+        _boxCollider.isTrigger = true;
     }
+
+    public abstract void InteractAction();
+  
+
     public void TriggerDialogue()
     {
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue);

@@ -5,11 +5,16 @@ using UnityEngine;
 public enum PlayerControlState
 {
     Able,
-    Unable
+    Disable
 }
 public enum DialogueState
 {
     None,
     Typing,
     Waiting
+}
+public enum InteractState
+{
+    Enable,
+    Disable
 }

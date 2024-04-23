@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public GameObject player;
-    private PlayerControlState _playerControlState;
+
     private void Awake()
     {
         instance = this;
@@ -16,13 +16,14 @@ public class GameManager : MonoBehaviour
     {
         player = GameObject.Find("Player").gameObject;
     }
+
     public void SetPlayerControlAble()
     {
-        player.GetComponent<PlayerController>().playerControlState = PlayerControlState.Able; 
+        player.GetComponent<PlayerPhysicsHandler>().playerControlState = PlayerControlState.Able; 
     }
 
-    public void SetPlayerControlUnable()
+    public void SetPlayerControlDisable()
     {
-        player.GetComponent<PlayerController>().playerControlState = PlayerControlState.Unable;
+        player.GetComponent<PlayerPhysicsHandler>().playerControlState = PlayerControlState.Disable;
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class DialogueManager : MonoBehaviour
 
     private DialogueState _dialogueState;
     private string _sentence;
+
     #region Unity flow
     private void Start()
     {
@@ -26,14 +28,13 @@ public class DialogueManager : MonoBehaviour
     }
     private void Update()
     {
-        //Å¬¸¯ ½Ã 
-        if(Input.GetMouseButtonDown(0) && _dialogueState == DialogueState.Typing)
+        if((Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space)) && _dialogueState == DialogueState.Typing)
         {
             StopAllCoroutines();
             dialogueText.text = _sentence;
             _dialogueState = DialogueState.Waiting;
         }
-        else if (Input.GetMouseButtonDown(0) && _dialogueState == DialogueState.Waiting)
+        else if ((Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space)) && _dialogueState == DialogueState.Waiting)
         {
             DisplayNextSentence();
         }
@@ -43,6 +44,8 @@ public class DialogueManager : MonoBehaviour
     #region Dialogue flow Method
     public void StartDialogue (Dialogue dialogue)
     {
+        GameManager.instance.SetPlayerControlDisable();
+
         nameText.text = dialogue.name;
         dialogueText.text = string.Empty;
 
@@ -83,8 +86,8 @@ public class DialogueManager : MonoBehaviour
     public void EndDialogue ()
     {
         panelOfDialogue.SetActive(false);
-        GameManager.instance.SetPlayerControlAble();
         _dialogueState = DialogueState.None;
+        GameManager.instance.SetPlayerControlAble();
     }
     #endregion
 }
